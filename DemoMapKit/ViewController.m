@@ -11,11 +11,14 @@
 
 @interface ViewController ()
 
+@property (nonatomic, readwrite) NSArray * annotations;
+
 @end
 
 @implementation ViewController
 
 @synthesize mapView=_mapView;
+@synthesize annotations=_annotations;
 
 
 - (void)viewDidLoad {
