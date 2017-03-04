@@ -87,6 +87,8 @@
     MKCircle *circle = [MKCircle circleWithCenterCoordinate:location1 radius:2000];
     [self.mapView addOverlay:circle];
     
+    [self updateMapView]
+    
 }
 
 
@@ -117,7 +119,8 @@
 
 - (void)setAnnotations:(NSArray *)annotations
 {
-
+    self.annotations = annotations;
+    [self updateMapView];
     
     
     
