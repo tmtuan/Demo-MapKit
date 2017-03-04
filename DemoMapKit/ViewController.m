@@ -15,6 +15,9 @@
 
 @implementation ViewController
 
+@synthesize mapView=_mapView;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -26,5 +29,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - methods
+- (void)updateMapView
+{
+
+}
+
+- (void)setMapView:(MKMapView *)mapView
+{
+
+}
+
+- (void)setAnnotations:(NSArray *)annotations
+{
+
+}
 
 @end
