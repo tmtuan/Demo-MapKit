@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62661D721E6A9A490062CE56 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 62661D711E6A9A490062CE56 /* Location.m */; };
 		62B1733C1E6909440078BE91 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B1733B1E6909440078BE91 /* main.m */; };
 		62B1733F1E6909440078BE91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B1733E1E6909440078BE91 /* AppDelegate.m */; };
 		62B173421E6909440078BE91 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B173411E6909440078BE91 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		62661D701E6A9A490062CE56 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		62661D711E6A9A490062CE56 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		62B173371E6909440078BE91 /* DemoMapKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoMapKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B1733B1E6909440078BE91 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		62B1733D1E6909440078BE91 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,6 +69,8 @@
 				62B1733E1E6909440078BE91 /* AppDelegate.m */,
 				62B173401E6909440078BE91 /* ViewController.h */,
 				62B173411E6909440078BE91 /* ViewController.m */,
+				62661D701E6A9A490062CE56 /* Location.h */,
+				62661D711E6A9A490062CE56 /* Location.m */,
 				62B173431E6909440078BE91 /* Main.storyboard */,
 				62B173461E6909440078BE91 /* Assets.xcassets */,
 				62B173481E6909440078BE91 /* LaunchScreen.storyboard */,
@@ -165,6 +170,7 @@
 			files = (
 				62B173421E6909440078BE91 /* ViewController.m in Sources */,
 				62B1733F1E6909440078BE91 /* AppDelegate.m in Sources */,
+				62661D721E6A9A490062CE56 /* Location.m in Sources */,
 				62B1733C1E6909440078BE91 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +328,7 @@
 				62B173501E6909440078BE91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
