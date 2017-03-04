@@ -7,9 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "Location.h"
 
-@interface ViewController ()
+@interface ViewController () 
 
 @property (nonatomic, readwrite) NSArray * annotations;
 
@@ -24,8 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    self.mapView.delegate = self;
     
     // create locations
     // Location 1
@@ -58,36 +55,13 @@
     // center the map
     [self.mapView setRegion:region animated:YES];
     
-    // create annotations
-    Location *annotation1 = [[Location alloc] initWithCoordinate:location1];
-    annotation1.title = @"Nhà thờ Đức Bà";
-    annotation1.subtitle = @"Notre Dame";
-    annotation1.logo = [UIImage imageNamed:@"pin"];
-    annotation1.url = [NSURL URLWithString:@"http://wwww.google.com"];
-    
-    Location *annotation2 = [[Location alloc] initWithCoordinate:location2];
-    annotation2.title = @"Nhà hát thành phố";
-    annotation2.subtitle = @"Theatre";
-    annotation2.logo = [UIImage imageNamed:@"pin"];
-    annotation2.url = [NSURL URLWithString:@"http://www.google.com"];
-    
-    Location *annotation3 = [[Location alloc] initWithCoordinate:location3];
-    annotation3.title = @"Nhà hát thành phố";
-    annotation3.subtitle = @"Theatre";
-    annotation3.logo = [UIImage imageNamed:@"pin"];
-    annotation3.url = [NSURL URLWithString:@"http://www.google.com"];
-    
-    self.annotations = [[NSArray alloc] initWithObjects:annotation1, annotation2, annotation3, nil];
-    
-    // add annotations to the map
-    [self.mapView addAnnotations:self.annotations];
     
     // add an overlay to the map
     // create a circle around the center of the map (distance in meters)
     MKCircle *circle = [MKCircle circleWithCenterCoordinate:location1 radius:2000];
     [self.mapView addOverlay:circle];
     
-    [self updateMapView]
+    
     
 }
 
@@ -97,35 +71,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - methods
-- (void)updateMapView
-{
-    if (self.mapView.annotations)
-    {
-        [self.mapView removeAnnotations:self.mapView.annotations];
-    }
-    if (self.annotations)
-    {
-        [self.mapView addAnnotations:self.annotations];
-    }
-}
 
-- (void)setMapView:(MKMapView *)mapView
-{
-    self.mapView = mapView;
-    [self updateMapView];
-
-}
-
-- (void)setAnnotations:(NSArray *)annotations
-{
-    self.annotations = annotations;
-    [self updateMapView];
-    
-    
-    
-    
-    
-}
 
 @end
