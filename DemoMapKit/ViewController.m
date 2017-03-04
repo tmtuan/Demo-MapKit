@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "Location.h"
 
 @interface ViewController ()
 
@@ -35,17 +35,43 @@
 #pragma mark - methods
 - (void)updateMapView
 {
-
+    if (self.mapView.annotations)
+    {
+        [self.mapView removeAnnotations:self.mapView.annotations];
+    }
+    if (self.annotations)
+    {
+        [self.mapView addAnnotations:self.annotations];
+    }
 }
 
 - (void)setMapView:(MKMapView *)mapView
 {
+    self.mapView = mapView;
+    [self updateMapView];
 
 }
 
 - (void)setAnnotations:(NSArray *)annotations
 {
 
+    // Location 1
+    CLLocationCoordinate2D location1;
+    location1.latitude = 10.779784;
+    location1.longitude = 106.698995;
+    
+    
+    // location 2
+    CLLocationCoordinate2D location2;
+    location2.latitude = 10.776517;
+    location2.longitude = 106.703096;
+    
+    
+    // location 3
+    CLLocationCoordinate2D location3;
+    location3.latitude = 10.777961;
+    location3.longitude = 106.696234;
+    
 }
 
 @end
