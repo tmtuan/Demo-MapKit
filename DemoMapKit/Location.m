@@ -17,4 +17,10 @@
 @synthesize logo=_logo;
 @synthesize url=_url;
 
+- (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    self.coordinate = coordinate;
+    return self;
+}
+
 @end
