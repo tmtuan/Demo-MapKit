@@ -58,9 +58,17 @@
     
     // add an overlay to the map
     // create a circle around the center of the map (distance in meters)
-    MKCircle *circle = [MKCircle circleWithCenterCoordinate:location1 radius:2000];
+    MKCircle *circle = [MKCircle circleWithCenterCoordinate:location2 radius:2000];
     [self.mapView addOverlay:circle];
     
+    //create new annotation
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    annotation.coordinate = location2;
+    annotation.title = @"Nhà hát thành phố";
+    annotation.subtitle = @"City Theatre";
+    
+    // add annotation to map
+    [self.mapView addAnnotation:annotation];
     
     
 }
