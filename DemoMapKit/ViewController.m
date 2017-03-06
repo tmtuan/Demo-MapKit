@@ -37,12 +37,6 @@
     location2.latitude = 10.776517;
     location2.longitude = 106.703096;
     
-    
-    // location 3
-    CLLocationCoordinate2D location3;
-    location3.latitude = 10.777961;
-    location3.longitude = 106.696234;
-
     // define map span
     MKCoordinateSpan span;
     span.latitudeDelta = 0.028;
@@ -56,26 +50,31 @@
     // center the map
     [self.mapView setRegion:region animated:YES];
     
-    
-    // add an overlay to the map
-    // create a circle around the center of the map (distance in meters)
-    MKCircle *circle = [MKCircle circleWithCenterCoordinate:location2 radius:2000];
-    [self.mapView addOverlay:circle];
-    
-    //create new annotation
-    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-    annotation.coordinate = location2;
-    annotation.title = @"Nhà hát thành phố";
-    annotation.subtitle = @"City Theatre";
-    
     // create annotation for location 1
     Location *notreDameCathedral = [[Location alloc] initWithCoordinate:location1];
     notreDameCathedral.title = @"Notre Dame Cathedral";
     notreDameCathedral.subtitle = @"Nhà thờ Đức Bà";
     
+    // create annotation for location 2
+    Location *cityTheater = [[Location alloc] initWithCoordinate:location2];
+    cityTheater.title = @"City Theater";
+    cityTheater.subtitle = @"Nhà hát thành phố";
+    
     // add annotation to map
-    [self.mapView addAnnotation:annotation];
     [self.mapView addAnnotation:notreDameCathedral];
+    [self.mapView addAnnotation:cityTheater];
+    
+    // Overlay
+    // create a C array of coordinates to pss to our polyline
+    CLLocationCoordinate2D polylineCoordinates[] = { location1, location2 };
+    
+    // create polyline connecting boths locations and add to map
+    MKPolyline *line = [MKPolyline polylineWithCoordinates:polylineCoordinates count:2];
+    [self.mapView addOverlay:line];
+    
+    // create a circle around the center of the map (distance in meters)
+    MKCircle *circle = [MKCircle circleWithCenterCoordinate:location1 radius:100.0];
+    [self.mapView addOverlay:circle];
     
     
 }
@@ -126,4 +125,34 @@
     [alert show];
 }
 
+// define looks for overlay
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
+{
+    
+    // overlay is a polyline
+    if ([overlay isKindOfClass:[MKPolyline class]]) {
+        // create view for polyline
+        MKPolylineView *polylineView = [[MKPolylineView alloc] initWithOverlay:overlay];
+        
+        // set color and width
+        polylineView.strokeColor = [UIColor redColor];
+        polylineView.lineWidth = 2.0;
+        
+        return polylineView;
+    }
+    
+    // overlay is a circle
+    else if ([overlay isKindOfClass:[MKCircle class]]) {
+        // create view for circle
+        MKCircleView *circleView = [[MKCircleView alloc] initWithOverlay:overlay];
+        
+        // set color and width
+        circleView.strokeColor = [UIColor blueColor];
+        circleView.lineWidth = 5.0;
+        
+        return circleView;
+    }
+    return nil;
+    
+}
 @end
