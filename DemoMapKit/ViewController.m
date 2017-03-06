@@ -87,7 +87,31 @@
 }
 
 #pragma mark - MapKit Delegate
-
+- (nullable MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    // try to re-use pin annotation view
+    MKPinAnnotationView *pin = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"Marker"];
+    
+    // non available in the cache
+    if (pin == nil) {
+        // allocate new pin
+        pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Marker"];
+        
+        // add detail disclosure button
+        pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    }
+    
+    // change color of the pin
+    pin.pinTintColor = [UIColor greenColor];
+    
+    // animate pin dropping
+    pin.animatesDrop = YES;
+    
+    // show callout when tapped
+    pin.canShowCallout = YES;
+    
+    return pin;
+}
 
 
 @end
