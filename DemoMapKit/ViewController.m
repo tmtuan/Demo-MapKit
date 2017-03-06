@@ -113,5 +113,17 @@
     return pin;
 }
 
+// Fired when user taps detail disclosure button
+// show pop-up
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Detail Button Tapped"
+                                                    message:((Location *)view.annotation).title
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    
+    [alert show];
+}
 
 @end
