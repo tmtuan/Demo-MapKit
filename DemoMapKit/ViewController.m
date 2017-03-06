@@ -68,8 +68,14 @@
     annotation.title = @"Nhà hát thành phố";
     annotation.subtitle = @"City Theatre";
     
+    // create annotation for location 1
+    Location *notreDameCathedral = [[Location alloc] initWithCoordinate:location1];
+    notreDameCathedral.title = @"Notre Dame Cathedral";
+    notreDameCathedral.subtitle = @"Nhà thờ Đức Bà";
+    
     // add annotation to map
     [self.mapView addAnnotation:annotation];
+    [self.mapView addAnnotation:notreDameCathedral];
     
     
 }
