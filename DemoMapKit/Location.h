@@ -18,11 +18,11 @@
     NSURL * _url;
 }
 
-@property (nonatomic, readwrite) CLLocationCoordinate2D coordinate;
+@property (nonatomic, readwrite, assign) CLLocationCoordinate2D coordinate;
 @property (nonatomic, readwrite, copy) NSString * title;
 @property (nonatomic, readwrite, copy) NSString * subtitle;
-@property (nonatomic, readwrite) UIImage * logo;
-@property (nonatomic, readwrite) NSURL * url;
+@property (nonatomic, readwrite, copy) UIImage * logo;
+@property (nonatomic, readwrite, copy) NSURL * url;
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate;
 

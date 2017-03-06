@@ -19,7 +19,11 @@
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    self.coordinate = coordinate;
+    self = [super init];
+    
+    if (self != nil)
+        self.coordinate = coordinate;
+    
     return self;
 }
 
